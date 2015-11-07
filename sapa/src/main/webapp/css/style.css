@@ -1,0 +1,21 @@
+@CHARSET "ISO-8859-1";
+table {
+	margin: auto;
+}
+.fieldset-login {
+	margin: auto; width: 250px; box-shadow: 10px 10px #888888; background-color: white;
+}
+
+.fieldset-main {
+	margin: auto; width: 250px; margin-top: 2.0em; margin-bottom: 1.0em;
+}
+
+label {
+	float: left; width: 60px; margin-top: 0.2em;
+}
+input {
+	float: left; width: 170px; margin-top: 0.2em; margin-left: 1.0em;
+}
+input:last-child {
+	width: 100px; margin-left: 100px; margin-top: 5px;
+}

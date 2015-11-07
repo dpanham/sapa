@@ -1,0 +1,62 @@
+last update: 11/04
+-install JBoss Tools
+Help > Eclipse marketplace:
+JBoss Tools > install
+
+- Install EGit
+Help > Install new software > add:
+http://download.eclipse.org/egit/updates
+
+-start WAMP or MySQL Workbench
+> create a database named sapa
+
+- Import workspace:
+extract sapa.zip inside workspace folder of Eclipse-Mars
+open workspace:
+File > import > Existing projects into workspace
+
+- Run edu.fatec..sapa.test/test.java as java application
+On project explorer, open:
+sapa > Java resources src/main/java > edu.fatec.sapa.test > test.java
+Run > run > run as > Java application
+
+- fix maven connection problem:
+Error:
+Failure to transfer org.apache.maven.plugins:maven-surefire-plugin:pom:2.12.4 
+from https://repo.maven.apache.org/maven2 was cached in the local repository, 
+resolution will not be reattempted until the update interval of central has elapsed or updates are forced. 
+Original error: Could not transfer artifact org.apache.maven.plugins:maven-surefire-plugin:pom:2.12.4 
+from/to central (https://repo.maven.apache.org/maven2): The operation was cancelled.
+Solution:
+Close Apache-Mars
+Goto the directory C:/Users/{UserName}/.m2/repository/org/apache.
+Delete the maven folder.
+Right click on your Maven project in Eclipse and select Maven -> Update Project...
+In the appeared dialog, select the Force Update of Snapshots/Releases and click OK
+
+- adjust Java version:
+Error:
+Build path specifies execution environment J2SE-1.5. 
+There are no JREs installed in the workspace that are strictly compatible with this environment. 
+Solution:
+Right-click on your project > Properties (Alt+Enter)
+> java build path > Libraries
+Remove the "JRE System Library[J2SE 1.6]"
+> click "Add Library" button > JRE System Library
+-> select Workspace default JRE or "Executing Environment"
+
+Error:
+Exception in thread "main" javax.persistence.PersistenceException: Unable to build entity manager factory
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown database 'sapa'
+Solution:
+Create sapa database on mysql using phpmyadmin or workbench
+
+Error:
+INFO: HHH000262: Table not found: tb_user
+Run test.java
+
+Error:
+tomcat server not appear
+This project is not associated with any servers
+Solution:
+on server tab > add server

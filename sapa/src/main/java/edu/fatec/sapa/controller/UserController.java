@@ -1,0 +1,52 @@
+package edu.fatec.sapa.controller;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
+
+import edu.fatec.sapa.dao.UserDAO;
+import edu.fatec.sapa.model.User;
+
+@ManagedBean(name = "LoginMB")
+@SessionScoped
+public class UserController {
+	
+	private UserDAO userDAO = new UserDAO();
+	private User user = new User();
+	
+	public String login() {
+		user = userDAO.getUser(user.getUname(), user.getPass());
+		if (user == null) {
+			user = new User();
+			FacesContext.getCurrentInstance().addMessage(
+					null, 
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "User not found!",
+							"Login error!"));
+			return null;
+		}
+		else {
+			//login
+			HttpSession session = UserSession.getSession();
+			session.setAttribute("uname", user);
+			return "/main";
+		}
+	}
+	
+	//logout
+	public String logout() {
+		HttpSession session = UserSession.getSession();
+		session.invalidate();
+		return "/login";
+	}
+	
+	
+	public User getUser() {
+		return user;
+	}
+	
+	public void setUser(User user) {
+		this.user = user;
+	}
+}

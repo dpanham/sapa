@@ -18,7 +18,7 @@ public class UserDAO {
 	public User getUser(String uname, String pass) {
 		try {
 			User user = (User) manager
-					.createQuery("SELECT u FROM User u WHERE  u.uname = :name and u.pass = :pass ")
+					.createQuery("SELECT u FROM User u WHERE  u.uname = :name and u.upass = :pass ")
 					.setParameter("name", uname)
 					.setParameter("pass", pass).getSingleResult();
 			return user;

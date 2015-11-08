@@ -4,6 +4,9 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+/**
+ * Code that implements session methods (getSession, getRequest, getUserName, getUserId)
+ */
 public class UserSession {
 
 	public static HttpSession getSession() {

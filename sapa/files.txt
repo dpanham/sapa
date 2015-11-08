@@ -1,0 +1,23 @@
+src\main\java\webapp
+META-INF
+persistence.xml: establish database connection
+
+-------------------------
+
+src\main\java\
+
+edu.fatec.sapa.controller
+UserController: create user login
+UserSession: create session methods
+
+edu.fatec.sapa.dao
+UserDAO: Get user from database (do SELECT FROM)
+
+edu.fatec.sapa.filter
+AuthorizationFilter: Check login status and redirect
+
+edu.fatec.sapa.model
+User: Entity User - create database table User structure
+
+edu.fatec.sapa.test
+test: Create user on database

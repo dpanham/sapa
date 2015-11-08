@@ -9,6 +9,9 @@ import javax.servlet.http.HttpSession;
 import edu.fatec.sapa.dao.UserDAO;
 import edu.fatec.sapa.model.User;
 
+/**
+ * Code responsible to create user login
+ */
 @ManagedBean(name = "LoginMB")
 @SessionScoped
 public class UserController {
@@ -17,7 +20,7 @@ public class UserController {
 	private User user = new User();
 	
 	public String login() {
-		user = userDAO.getUser(user.getUname(), user.getPass());
+		user = userDAO.getUser(user.getUname(), user.getUpass());
 		if (user == null) {
 			user = new User();
 			FacesContext.getCurrentInstance().addMessage(

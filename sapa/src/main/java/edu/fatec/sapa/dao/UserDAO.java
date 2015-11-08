@@ -7,9 +7,12 @@ import javax.persistence.Persistence;
 
 import edu.fatec.sapa.model.User;
 
+/**
+ * Get user from database
+ */
 public class UserDAO {
 	// database factory
-	private EntityManagerFactory factory = Persistence.createEntityManagerFactory("sapa");
+	private EntityManagerFactory factory = Persistence.createEntityManagerFactory("db_sapa");
 	private EntityManager manager = factory.createEntityManager();
 	
 	public User getUser(String uname, String pass) {

@@ -6,18 +6,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Entity User - create database table User structure
+ */
 @Entity
 @Table(name="tb_user")
 public class User {
 	private int id;
 	private String uname;
-	private String pass;
+	private String upass;
+	private int ulevel;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int getId() {
 		return id;
-	}	
+	}
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -29,11 +33,18 @@ public class User {
 		this.uname = uname;
 	}
 
-	public String getPass() {
-		return pass;
+	public String getUpass() {
+		return upass;
 	}
-	public void setPass(String pass) {
-		this.pass = pass;
+	public void setUpass(String upass) {
+		this.upass = upass;
 	}
 		
+	public int getUlevel() {
+		return ulevel;
+	}
+	public void setUlevel(int ulevel) {
+		this.ulevel = ulevel;
+	}
+	
 }

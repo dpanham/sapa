@@ -9,8 +9,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+import edu.fatec.sapa.model.Periodo;
 import edu.fatec.sapa.poi.DataPoi;
-public class Test {
+public class TestPeriodo {
 
 	public static void main(String[] args) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("db_sapa");
@@ -43,17 +44,21 @@ public class Test {
 		data3.clear();
 		data3.addAll(distinctData3);
 		Collections.sort(data3); //sort data
-
+		
 		int i, j, k;
-		int count = 0;
 		for (i = 0; i < data1.size(); i++) {
 		    for (j = 0; j < data2.size(); j++) {
 		        for (k = 0; k < data3.size(); k++) {
-		            count++;
-		            System.out.println(count + ". " +data1.get(i) + data2.get(j) + data3.get(k));
+					Periodo periodo = new Periodo();
+					periodo.setAno_ingresso(Integer.parseInt(data1.get(i)));
+					periodo.setSemestre_ingresso(Integer.parseInt(data2.get(j).trim()));
+					periodo.setPeriodo(data3.get(k));
+					manager.persist(periodo);
+					//System.out.println(count + ". " +data1.get(i) + data2.get(j) + data3.get(k));
 		        }
 		    }
 		}
-
+		trx.commit();		
+		
 	}
 }

@@ -10,6 +10,9 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 import edu.fatec.sapa.poi.DataPoi;
+/**
+ * Spreadsheet connection test (not used on program. only test purpose)
+ */
 public class Test {
 
 	public static void main(String[] args) {

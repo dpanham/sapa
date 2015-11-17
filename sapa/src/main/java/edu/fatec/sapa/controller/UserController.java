@@ -16,8 +16,8 @@ import edu.fatec.sapa.model.User;
 @SessionScoped
 public class UserController {
 	
-	private UserDAO userDAO = new UserDAO();
-	private User user = new User();
+	private UserDAO userDAO = new UserDAO(); //instantiate User database connection object
+	private User user = new User(); //instantiate User entity
 	
 	public String login() {
 		user = userDAO.getUser(user.getUname(), user.getUpass());
@@ -30,7 +30,7 @@ public class UserController {
 			return null;
 		}
 		else {
-			//login
+			//login - create session
 			HttpSession session = UserSession.getSession();
 			session.setAttribute("uname", user);
 			return "/main";

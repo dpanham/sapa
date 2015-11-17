@@ -6,6 +6,9 @@ import java.util.HashSet;
 
 import edu.fatec.sapa.poi.DataPoi;
 
+/**
+ * Spreadsheet connection test (not used on program. only test purpose)
+ */
 public class TestPoi {
 
 	public static void main(String[] args) {

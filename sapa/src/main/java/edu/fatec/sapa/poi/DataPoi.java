@@ -18,7 +18,8 @@ public class DataPoi {
 		try {
 			// open file
 			FileInputStream file = new FileInputStream(
-					new File("D:\\eclipse-Mars\\sapa.git\\sapa\\src\\main\\java\\edu\\fatec\\sapa\\poi\\ss.xls"));
+			new File("D:\\eclipse-Mars\\sapa.git\\sapa\\src\\main\\java\\edu\\fatec\\sapa\\poi\\ss.xls"));
+/*			new File("C:\\Users\\usantos\\Downloads\\soft\\eclipse-Mars\\ws\\sapa\\src\\main\\java\\edu\\fatec\\sapa\\poi\\ss.xls"));*/
 			// Get the workbook instance for XLS file
 			HSSFWorkbook workbook = new HSSFWorkbook(file);
 			// Get first sheet from the workbook

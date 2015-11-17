@@ -11,6 +11,9 @@ import javax.persistence.Persistence;
 
 import edu.fatec.sapa.model.*;
 import edu.fatec.sapa.poi.DataPoi;
+/**
+ * Insert situation types on database (include on upload procedure)
+ */
 public class TestSituacao {
 
 	public static void main(String[] args) {

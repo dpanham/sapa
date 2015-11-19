@@ -7,10 +7,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-
-import edu.fatec.sapa.dao.SituacaoDAO;
+import edu.fatec.sapa.dao.AlunoDAO;
 import edu.fatec.sapa.model.Aluno;
-import edu.fatec.sapa.model.Situacao;
+import edu.fatec.sapa.model.Endereco;
 import edu.fatec.sapa.poi.DataPoi;
 public class TestEndereco {
 
@@ -20,43 +19,36 @@ public class TestEndereco {
 		EntityTransaction trx = manager.getTransaction();
 		trx.begin();
 		
-/*		SituacaoDAO situacaoDAO = new SituacaoDAO();
+		AlunoDAO alunoDAO = new AlunoDAO();
 		List<Object[]> list;
-		list = situacaoDAO.getSituacao();*/
+		list = alunoDAO.getAluno();
 		
 		ArrayList<String> data1 = new ArrayList<String>();
 		ArrayList<String> data2 = new ArrayList<String>();
 		ArrayList<String> data3 = new ArrayList<String>();
 		ArrayList<String> data4 = new ArrayList<String>();
-		ArrayList<String> data5 = new ArrayList<String>();
 		
 		DataPoi dataPoi = new DataPoi();
 		//get data from selected Excel Column
 		data1 = dataPoi.extractExcelContentByColumnIndex(21); //endereco residencial
 		data2 = dataPoi.extractExcelContentByColumnIndex(35); //bairro residencial
 		data3 = dataPoi.extractExcelContentByColumnIndex(36); //cidade residencial
-/*		data4 = dataPoi.extractExcelContentByColumnIndex(11); //raça
-		data5 = dataPoi.extractExcelContentByColumnIndex(13); //situacao
-*/		
+		data4 = dataPoi.extractExcelContentByColumnIndex(5); //ra
+		
 		for (int i = 0; i < data1.size(); i++) {
-			System.out.print(data1.get(i)+" - ");
-			System.out.print(data2.get(i)+" - ");
-			System.out.print(data3.get(i));
-			System.out.println();
-/*			Aluno aluno = new Aluno();
-			aluno.setRa(Long.parseLong(data1.get(i)));
-			aluno.setSexo(Integer.parseInt(data3.get(i).trim()));
-			aluno.setRaca(data4.get(i));
+			Endereco endereco = new Endereco();
+			endereco.setEndereco(data1.get(i));
+			endereco.setBairro(data2.get(i));
+			endereco.setCidade(data3.get(i));
 			
 			for (Object o : list) {
-				Situacao e = (Situacao) o;
-				if (data5.get(i).equals(e.getSituacao())) {
-					aluno.setCod_situacao(e.getCod_situacao());
+				Aluno e = (Aluno) o;
+				if (Long.parseLong(data4.get(i)) == e.getRa()) {
+					endereco.setCod_aluno(e.getCod_aluno());
 				}
-			}
-			
-			manager.persist(aluno);*/
+			}			
+			manager.persist(endereco);
 		}
-/*		trx.commit();*/
+		trx.commit();
 	}
 }

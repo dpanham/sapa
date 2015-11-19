@@ -14,6 +14,7 @@ public class Aluno {
 	private int sexo;
 	private String raca;
 	private int cod_situacao;
+	private int cod_periodo;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,5 +52,12 @@ public class Aluno {
 	public void setCod_situacao(int cod_situacao) {
 		this.cod_situacao = cod_situacao;
 	}
+	
+	public int getCod_periodo() {
+		return cod_periodo;
+	}
+	public void setCod_periodo(int cod_periodo) {
+		this.cod_periodo = cod_periodo;
+	}	
 	
 }

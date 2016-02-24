@@ -19,4 +19,11 @@ public class PeriodoDAO {
 				"SELECT e FROM Periodo e", Object[].class);
 		return query.getResultList();
 	}	
+
+	public List<Object[]> getPeriodo(String query) {	
+		TypedQuery<Object[]> result = manager.createQuery(query, Object[].class);
+		System.out.println("Fim do PeriodoDAO");
+		return result.getResultList();
+	}	
+
 }

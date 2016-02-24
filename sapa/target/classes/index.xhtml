@@ -1,32 +1,28 @@
-<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-<!--  	<link rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/css/bootstrap.css" type="text/css" />
-	<link rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/css/bootstrap-theme.css" type="text/css" />
- --> 	
-<link rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/css/style.css" type="text/css" />
+	<link rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/css/style.css" />
 </h:head>
 <h:body>
 	<h:form>
-		<table class="table-login" id="table-1">
-			<tbody>
-				<tr>
-					<td>
-						<fieldset>
-							<label for="txtusername">Name:</label>
-							<input type="text" id="txtusername" />
-							<label for="txtpassword">Password:</label>
-							<input type="password" id="txtpassword" />
-							<input type="submit" class="btn btn-default" value="OK" id="btnOK" />
-						</fieldset>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+	<fieldset class="fieldset-login">
+		<p:messages id="messages" />
+		<p:panelGrid columns="2">
+			<p:outputLabel style="width:100px;" for="txtUName" value="User name" />
+			<p:inputText style="margin-left:1.0em;width:170px;" id="txtUName" value="#{LoginMB.user.uname}" />
+
+			<p:outputLabel for="txtPass" value="Password" />
+			<p:password style="margin-left:1.0em;width:170px;" id="txtPass" value="#{LoginMB.user.upass}" />
+			
+			<p:commandButton value="OK" icon="ui-icon-star"
+				action="#{LoginMB.login}" ajax="false" />
+
+		</p:panelGrid>
+		</fieldset>
 	</h:form>
 </h:body>
+
 </html>

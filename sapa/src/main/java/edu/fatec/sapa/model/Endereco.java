@@ -13,7 +13,6 @@ public class Endereco {
 	private String endereco;
 	private String bairro;
 	private String cidade;
-	private int cod_aluno;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,13 +39,6 @@ public class Endereco {
 	}
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
-	}
-	
-	public int getCod_aluno() {
-		return cod_aluno;
-	}
-	public void setCod_aluno(int cod_aluno) {
-		this.cod_aluno = cod_aluno;
 	}
 	
 }

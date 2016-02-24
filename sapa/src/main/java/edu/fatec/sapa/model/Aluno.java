@@ -1,10 +1,14 @@
 package edu.fatec.sapa.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="tb_aluno")
@@ -13,8 +17,10 @@ public class Aluno {
 	private long ra;
 	private int sexo;
 	private String raca;
+	private Date data_nascimento;
 	private int cod_situacao;
 	private int cod_periodo;
+	private int cod_municipio;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -58,6 +64,21 @@ public class Aluno {
 	}
 	public void setCod_periodo(int cod_periodo) {
 		this.cod_periodo = cod_periodo;
-	}	
+	}
+	
+	public int getCod_municipio() {
+		return cod_municipio;
+	}
+	public void setCod_municipio(int cod_municipio) {
+		this.cod_municipio = cod_municipio;
+	}
+	
+	@Temporal(TemporalType.DATE)
+	public Date getData_nascimento() {
+		return data_nascimento;
+	}
+	public void setData_nascimento(Date data_nascimento) {
+		this.data_nascimento = data_nascimento;
+	}
 	
 }

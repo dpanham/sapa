@@ -1,25 +1,50 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
-<head>
+
+	
+<h:head>
 	<title><ui:insert name="title">SAPA</ui:insert></title>
 	<link rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/css/bootstrap.css" type="text/css" />
 	<link rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/css/bootstrap-theme.css" type="text/css" />
 	<link rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/css/style.css" />
-</head>
+</h:head>
 
-<body>
+<h:body>
 	<div id="header">
 		<ui:insert name="header">
 			<ui:include src="/WEB-INF/templates/header.xhtml" />
 		</ui:insert>
 	</div>
 
-	<div id="content">
-		<ui:insert name="content">
+	<h:panelGroup id="content" layout="block">
+		<h:form>
+			<p:menubar>
+				<p:menuitem value="#{LoginMB.user.uname}" rendered="#{LoginMB.user.ulevel == 2}" />
+				<p:submenu label="#{LoginMB.user.uname}" rendered="#{LoginMB.user.ulevel == 1}">
+					<p:menuitem value="Importar" url="import.xhtml" rendered="#{LoginMB.user.ulevel == 1}" target="_blank" />
+					<p:menuitem value="Cadastrar" url="create.xhtml" rendered="#{LoginMB.user.ulevel == 1}" />
+				</p:submenu>
+				<p:menuitem value="Social" url="social.xhtml" />
+				<p:menuitem value="Idade" url="social2.xhtml" />
+				<p:menuitem value="Academico" url="academic.xhtml" />
+				<p:menuitem value="Demografico" url="demographic.xhtml" />
+				<p:menuitem value="Sair" action="#{LoginMB.logout()}" ajax="false" />
+			</p:menubar>
+			<p:outputPanel id="outputPanel">
+				<ui:include src="#{pages.dynamicaPagesInclude}" />
+			</p:outputPanel>
+		</h:form>
+		
+		<ui:insert>
 		</ui:insert>
-	</div>
+		
+	</h:panelGroup>
 
 	<div id="footer">
 		<ui:insert name="footer">
@@ -27,5 +52,5 @@
 		</ui:insert>
 	</div>
 
-</body>
+</h:body>
 </html>

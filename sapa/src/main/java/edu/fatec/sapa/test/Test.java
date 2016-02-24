@@ -9,7 +9,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import edu.fatec.sapa.poi.DataPoi;
+import edu.fatec.sapa.util.DataPoi;
 /**
  * Spreadsheet connection test (not used on program. only test purpose)
  */

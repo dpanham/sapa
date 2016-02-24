@@ -1,5 +1,6 @@
 package edu.fatec.sapa.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,6 +27,7 @@ public class User {
 		this.id = id;
 	}
 	
+	@Column(unique=true)
 	public String getUname() {
 		return uname;
 	}
